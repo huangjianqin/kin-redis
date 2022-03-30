@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.kin</groupId>
+    <artifactId>kin-redis-dependencies</artifactId>
+    <packaging>pom</packaging>
+    <version>0.1.0.0</version>
+    <description>kin-redis项目第三方依赖清单</description>
+
+    <properties>
+        <kin-framework-dependencies.version>0.1.0.0</kin-framework-dependencies.version>
+        <kin-framework-java.version>0.1.0.0</kin-framework-java.version>
+        <lettuce.version>5.3.3.RELEASE</lettuce.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.kin</groupId>
+                <artifactId>kin-framework-java</artifactId>
+                <version>${kin-framework-java.version}</version>
+            </dependency>
+
+            <!-- redis客户端-->
+            <dependency>
+                <groupId>io.lettuce</groupId>
+                <artifactId>lettuce-core</artifactId>
+                <version>${lettuce.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>
