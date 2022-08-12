@@ -25,7 +25,7 @@ public class RedisBloomFilterTest {
         String key = "bf";
         commands.del(key);
 
-        RedisBloomFilter<String> bloomFilter = new RedisBloomFilter<>(key, 1000, 0.03, connection);
+        RedisBloomFilter<String> bloomFilter = new RedisBloomFilter<>(1000, 0.03, key, connection);
 
         bloomFilter.put("1");
         bloomFilter.put("2");
