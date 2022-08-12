@@ -29,7 +29,6 @@ import java.util.concurrent.TimeoutException;
  * @see com.google.common.hash.BloomFilter
  */
 public final class RedisBloomFilter<T> {
-    private static final Logger LOGGER = LoggerFactory.getLogger(RedisBloomFilter.class);
     private final BatchBitCommands commands;
 
     /** redis Key */
@@ -120,7 +119,6 @@ public final class RedisBloomFilter<T> {
     public CompletionStage<Boolean> containsAsync(T object) {
         Preconditions.checkNotNull(object);
 
-        List<RedisFuture<Long>> futures = new ArrayList<>();
         CompletionStage<Boolean> ret = null;
         for (long index : getBitIndices(object)) {
             CompletionStage<Boolean> stage = commands.getbit(key, index).thenApply(r -> r == 1);
